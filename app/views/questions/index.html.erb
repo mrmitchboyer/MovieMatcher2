@@ -1,0 +1,9 @@
+<%= form_for(@question) do |f|%>
+  <div class="field">
+  <%= f.label :text, "What genre(s) do you prefer?"%><br>
+  <%= check_box_tag (:selection, @genres, :id, :name)%>
+  </div>
+  <div class="action">
+    <%= f.submit "Results"%>
+  </div>
+<%end%>
