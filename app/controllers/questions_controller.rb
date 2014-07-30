@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new
-    raise params.inspect 
+    @question.selection = params[:question][:selection]
+    @question.user_weight = params[:user_weight]
+    @question.find_my_movies
   end
+
+
 end
