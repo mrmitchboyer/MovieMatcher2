@@ -12,6 +12,8 @@ class QuestionsController < ApplicationController
     @question.question_type = params[:question_type]
     @question.add_to_user_responses
     @question.find_my_movies
+    session[:score] = @question.movie_scores
+    redirect_to '/'
   end
 
   def update

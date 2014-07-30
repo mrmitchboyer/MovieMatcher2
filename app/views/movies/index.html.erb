@@ -1,5 +1,6 @@
 <% @movies.each do |movie|%>
   <h2><%= movie.title%></h2>
+  <h3><%= movie.find_movie_score(@score)%></h3>
     <ul>
       <li>Rating: <%= movie.rating%></li>
       <li>Runtime: <%= movie.runtime%></li>

@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessor :selection, :user_weight, :question_type, :user_responses
+  attr_accessor :selection, :user_weight, :question_type, :user_responses, :movie_scores
 
   def self.weight
     {
@@ -29,7 +29,9 @@ class Question < ActiveRecord::Base
     user_genre_weight = user_responses["genres"].last
     Movie.all.each do |m|
       intersection = m.genres.pluck(:id) & user_genre_ids
-      raise "#{m.title}: #{m.genres.pluck(:id)}, #{user_genre_ids} #{intersection}"
+      g_score = intersection.count.to_f / m.genres.pluck(:id).count
+      self.movie_scores ||= {}
+      self.movie_scores[m.title] = g_score
     end
   end
 
