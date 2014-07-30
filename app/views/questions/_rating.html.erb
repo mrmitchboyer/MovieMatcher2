@@ -1,0 +1,23 @@
+<div class="panel panel-default col-md-8 col-md-offset-2">
+  <div class="panel-body text-center">
+    <%= form_for(@question) do |f|%>
+      <%= hidden_field_tag :question_type, :ratings %>
+      <h2>What rating(s) do you prefer?</h2>
+      <p>
+        <% @ratings.each do |rating|%>
+          <%= check_box_tag :user_rating, rating %>
+          <%= label_tag :user_rating, rating %>
+        <% end %>
+      </p>
+      <h3>How much do you care about the movie's rating?</h3>
+      <p>
+        <% Question.weight.each do |l, weight| %>
+          <%= radio_button_tag :user_weight, weight %>
+          <%= label_tag :user_weight, l %>
+        <% end %>
+      </p>
+      <button class="btn btn-primary">Ask Another Question</button>
+
+    <%end%>
+  </div>
+</div>

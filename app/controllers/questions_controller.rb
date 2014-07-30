@@ -1,13 +1,14 @@
 class QuestionsController < ApplicationController
 
   def index
+    @ratings = Movie.all.map{|m| m.rating}.uniq
     @genres = Genre.all
     @question = Question.new
   end
 
   def create
     @question = Question.new
-    @question.selection = params[:question][:selection]
+    @question.selection = params[:user_genre]
     @question.user_weight = params[:user_weight]
     @question.question_type = params[:question_type]
     @question.add_to_user_responses

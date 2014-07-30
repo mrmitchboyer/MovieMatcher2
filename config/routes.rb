@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   root 'movies#index'
 
     get 'questions' => 'questions#index'
-    post 'questions' => 'questions#create'
+    post 'questions' => 'questions#create', :as => 'enter_question'
 end
