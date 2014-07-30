@@ -9,7 +9,9 @@ class QuestionsController < ApplicationController
     @question = Question.new
     @question.selection = params[:question][:selection]
     @question.user_weight = params[:user_weight]
-    @question.find_my_movies
+    @question.question_type = params[:question_type]
+    @question.add_to_user_responses
+    raise "#{@question.user_responses}"
   end
 
   def update

@@ -1,7 +1,7 @@
 <div class="panel panel-default col-md-8 col-md-offset-2">
   <div class="panel-body text-center">
     <%= form_for(@question) do |f|%>
-
+      <%= hidden_field_tag :question_type, :genres %>
       <h2>What genre(s) do you prefer?</h2>
       <p>
         <%= f.collection_check_boxes(:selection, @genres, :id, :name)%> 

@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessor :selection, :user_weight
+  attr_accessor :selection, :user_weight, :question_type, :user_responses
 
   def self.weight
     {
@@ -12,18 +12,8 @@ class Question < ActiveRecord::Base
   end
 
   def add_to_user_responses
-    self.user_responses["genres"] = [self.selection, self.user_weight]
-  end
-
-  def user_responses
-    {
-
-      # genres: [[genre ids], weight],
-      # actors: [[actor ids], weight],
-      # director: [director name, weight],
-      # runtime: [runtime int, weight],
-      # rating: [rating str, weight]
-    }
+    self.user_responses ||= {}
+    self.user_responses[self.question_type] = [self.selection, self.user_weight]
   end
 
   def find_my_movies
