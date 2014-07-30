@@ -12,11 +12,11 @@ class Question < ActiveRecord::Base
   def add_to_user_responses
     self.user_responses ||= {}
     self.user_responses[self.question_type] = [self.selection, self.user_weight]
+    # binding.pry
   end
 
   def selection
     if @selection.is_a?(Array)
-      @selection.pop
       sel = @selection.map {|s| s.to_i }
     end
     return sel
@@ -24,8 +24,8 @@ class Question < ActiveRecord::Base
 
   def find_my_movies
     score_sum = []
-    user_genre_ids = user_responses["genres"].first
-    user_genre_weight = user_responses["genres"].last.to_i
+    user_genre_ids = user_responses["genre"].first
+    user_genre_weight = user_responses["genre"].last.to_i
     Movie.all.each do |m|
       intersection = m.genres.pluck(:id) & user_genre_ids
       g_score = intersection.count.to_f / m.genres.pluck(:id).count

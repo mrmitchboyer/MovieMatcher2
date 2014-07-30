@@ -8,9 +8,9 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new
-    @question.selection = params[:user_genre]
-    @question.user_weight = params[:user_weight]
-    @question.question_type = params[:question_type]
+    @question.selection = params[:genre][:user_genre]
+    @question.user_weight = params[:genre][:genre_weight]
+    @question.question_type = params[:genre][:name]
     @question.add_to_user_responses
     @question.find_my_movies
     session[:score] = @question.movie_scores

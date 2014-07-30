@@ -1,23 +1,22 @@
 <div class="panel panel-default col-md-8 col-md-offset-2">
   <div class="panel-body text-center">
-    <%= form_tag(enter_question_path) do%>
-      <%= hidden_field_tag :question_type, :genres %>
+
+      <%= hidden_field_tag "genre[name]", :genre %>
       <h2>What genre(s) do you prefer?</h2>
       <p>
         <%@genres.each do |genre|%>
-          <%= check_box_tag "user_genre[]", genre.id%>
-          <%= label_tag "user_genre[]", genre.name%>
+          <%= check_box_tag "genre[user_genre][]", genre.id%>
+          <%= label_tag "genre[user_genre][]", genre.name%>
         <%end%>
       </p>
       <h3>How much do you care about the movie's genre?</h3>
       <p>
         <% Question.weight.each do |label, weight| %>
-          <%= radio_button_tag :user_weight, weight %>
-          <%= label_tag :user_weight, label %>
+          <%= radio_button_tag "genre[genre_weight]", weight %>
+          <%= label_tag "genre[genre_weight]", label %>
         <% end %>
       </p>
       <button class="btn btn-primary">Ask Another Question</button>
-      <%=submit_tag "Submit"%>
-    <%end%>
+
   </div>
 </div>
