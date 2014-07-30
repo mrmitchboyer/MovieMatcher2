@@ -1,9 +1,13 @@
 <%= form_for(@question) do |f|%>
-  <div class="field">
+
   <%= f.label :text, "What genre(s) do you prefer?"%><br>
-  <%= check_box_tag (:selection, @genres, :id, :name)%>
-  </div>
-  <div class="action">
-    <%= f.submit "Results"%>
-  </div>
+  <%= f.collection_check_boxes(:selection, @genres, :id, :name)%> <br> 
+  <%= f.label :weight, "How much do you care about the movie's genre?"%><br>
+  <% Question.weight.each do |l, weight| %>
+    <%= check_box_tag ":weight[]", weight %>
+    <%= label_tag ':weight[]', l %>
+  <% end %><br>
+  <button>Ask Another Question</button>
+  <%= f.submit "Show me my recommendations"%>
+
 <%end%>
