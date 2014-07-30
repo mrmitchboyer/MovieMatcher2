@@ -4,6 +4,8 @@
 
 Add a short description of your app.
 
+We should add an if statement if you didn't answer any questions, we will just leave you a message and print all the movies that are out this week.
+
 ## Screenshots
 
 Add some spiffy screenshots of your app here.

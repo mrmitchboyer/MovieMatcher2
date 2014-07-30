@@ -5,9 +5,7 @@ class Question < ActiveRecord::Base
     {
       "I don't care" => 0,
       "I care a little" => 1,
-      "Whatever" => 2,
-      "I care a decent amount" => 3,
-      "I care so much it hurts" => 4
+      "I care so much it hurts" => 2
     }
   end
 
@@ -25,13 +23,19 @@ class Question < ActiveRecord::Base
   end
 
   def find_my_movies
+    score_sum = []
     user_genre_ids = user_responses["genres"].first
-    user_genre_weight = user_responses["genres"].last
+    user_genre_weight = user_responses["genres"].last.to_i
     Movie.all.each do |m|
       intersection = m.genres.pluck(:id) & user_genre_ids
       g_score = intersection.count.to_f / m.genres.pluck(:id).count
+      if user_genre_weight == 1
+        score_sum << Math.sqrt(g_score)
+      elsif user_genre_weight == 2
+        score_sum << g_score
+      end
       self.movie_scores ||= {}
-      self.movie_scores[m.title] = g_score
+      self.movie_scores[m.title] = score_sum.inject {|sum, elem| sum + elem } / score_sum.size unless score_sum == []
     end
   end
 

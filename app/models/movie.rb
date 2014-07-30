@@ -8,10 +8,4 @@ class Movie < ActiveRecord::Base
 
   attr_accessor :score
 
-  def find_movie_score(movie_scores)
-  	movie_scores.each do |title|
-  		binding.pry
-  		return title[1] if Movie.find_by(:title => title[0]).title == title[0]
-  	end
-  end
 end
