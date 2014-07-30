@@ -16,8 +16,21 @@ class Question < ActiveRecord::Base
     self.user_responses[self.question_type] = [self.selection, self.user_weight]
   end
 
+  def selection
+    if @selection.is_a?(Array)
+      @selection.pop
+      sel = @selection.map {|s| s.to_i }
+    end
+    return sel
+  end
+
   def find_my_movies
-    
+    user_genre_ids = user_responses["genres"].first
+    user_genre_weight = user_responses["genres"].last
+    Movie.all.each do |m|
+      intersection = m.genres.pluck(:id) & user_genre_ids
+      raise "#{m.title}: #{m.genres.pluck(:id)}, #{user_genre_ids} #{intersection}"
+    end
   end
 
 end
