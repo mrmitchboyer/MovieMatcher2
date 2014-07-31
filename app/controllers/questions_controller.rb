@@ -4,9 +4,11 @@ class QuestionsController < ApplicationController
     @genres = Genre.all
     @ratings = Movie.all.map{ |m| m.rating }.uniq
     @runtimes = Question.runtimes
+    @actors = TopActor.find_intersection
   end
 
   def create
+    raise params.inspect
     @question = Question.new
     @question.seed = question_params 
     @question.find_my_movies

@@ -4,6 +4,20 @@ require 'pry'
 
 class MovieScraper
 
+  def drop_all
+    Movie.destroy_all
+    Actor.destroy_all
+    Genre.destroy_all
+    TopDirector.destroy_all
+    TopActor.destroy_all
+  end
+
+  def scrape_all
+    self.current_movies
+    self.top_dir
+    self.top_act
+  end
+
   def current_movies
     doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1'))
 
