@@ -1,21 +1,22 @@
-<div class="panel panel-default col-md-8 col-md-offset-2">
+<div class="panel panel-default col-md-8 col-md-offset-2 question">
   <div class="panel-body text-center">
 
+      <%= hidden_field_tag "rating[name]", :rating %>
       <h2>What rating(s) do you prefer?</h2>
       <p>
         <% @ratings.each do |rating|%>
-          <%= check_box_tag "rating[user_rating][]", rating %>
-          <%= label_tag "rating[user_rating][]", rating %>
+          <%= check_box_tag "rating[answer][]", rating %>
+          <%= label_tag "rating[answer][]", rating %>
         <% end %>
       </p>
       <h3>How much do you care about the movie's rating?</h3>
       <p>
         <% Question.weight.each do |l, weight| %>
-          <%= radio_button_tag "rating[rating_weight]", weight %>
-          <%= label_tag "rating[rating_weight]", l %>
+          <%= radio_button_tag "rating[weight]", weight %>
+          <%= label_tag "rating[weight]", l %>
         <% end %>
       </p>
-      <button class="btn btn-primary">Ask Another Question</button>
+      <a class="btn btn-primary">Ask Another Question</a>
 
   </div>
 </div>

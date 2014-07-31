@@ -1,6 +1,13 @@
 class Question < ActiveRecord::Base
   attr_accessor :selection, :user_weight, :question_type, :user_responses, :movie_scores
 
+  # {
+  # "genre"=>{"name"=>"genre", "answer"=>["2", "3", "5"], "weight"=>"1"}, 
+  # "rating"=>{"name"=>"rating", "answer"=>["PG-13", "R"], "weight"=>"2"}
+  # }
+
+  answers.each do |
+
   def self.weight
     {
       "I don't care" => 0,
@@ -12,7 +19,6 @@ class Question < ActiveRecord::Base
   def add_to_user_responses
     self.user_responses ||= {}
     self.user_responses[self.question_type] = [self.selection, self.user_weight]
-    # binding.pry
   end
 
   def selection

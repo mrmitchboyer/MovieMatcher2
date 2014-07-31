@@ -1,8 +1,9 @@
-<%= form_tag(enter_question_path) do%>
+<%= form_tag(enter_question_path) do %>
   <%= render "genre" %>
   <%= render "rating" %>
-  <%=submit_tag "Submit"%>
-<%end%>
-<%#= render "rating"%>
 
-<!-- <button id = "submit">Show me my recommendations!</button> -->
+  <div class="clearfix"></div>
+  <div class="text-center">
+    <%=submit_tag "Show my results!", class: "btn-lg btn-success"%>
+  </div>
+<%end%>

@@ -1,12 +1,13 @@
 class QuestionsController < ApplicationController
 
   def index
-    @ratings = Movie.all.map{|m| m.rating}.uniq
+    @ratings = Movie.all.map{ |m| m.rating }.uniq
     @genres = Genre.all
     @question = Question.new
   end
 
   def create
+    raise params.inspect
     @question = Question.new
     @question.selection = params[:genre][:user_genre]
     @question.user_weight = params[:genre][:genre_weight]
