@@ -30,6 +30,7 @@ $( document ).ready(function() {
 
     $('.show-all-movies').click(function(){
       $movie.show();
+      $(this).hide();
     });
   }
 

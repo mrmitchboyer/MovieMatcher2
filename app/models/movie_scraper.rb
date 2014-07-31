@@ -4,7 +4,7 @@ require 'pry'
 
 class MovieScraper
 
-  def initialize
+  def current_movies
     doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1'))
 
     doc.css(".overview-top").each do |movie|
@@ -31,6 +31,18 @@ class MovieScraper
 
       m.save
     end
+  end
+
+  def top_dir
+      doc = Nokogiri::HTML(open('http://www.imdb.com/list/ls008344500/?start=1&view=compact&sort=listorian:asc&scb=0.20908019482158124'))
+
+      doc.css("td.name").each do |director|
+        d = TopDirector.new
+
+        d.name = director.children.children.text
+
+        d.save
+      end
   end
 
 end

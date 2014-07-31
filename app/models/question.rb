@@ -73,6 +73,25 @@ class Question < ActiveRecord::Base
       end
     end
 
+    if seed[:runtime][:weight] && seed[:runtime][:weight] != "0"
+      Movie.all.each do |m|
+        r_weight = seed[:runtime][:weight].to_i
+
+        if m.runtime > 120
+          run_key = 2
+        elsif m.runtime < 90
+          run_key = 0
+        else
+          run_key = 1
+        end
+        r_score = arr_to_i(seed[:runtime][:answer]).include?(run_key) ? 1 : 0
+        score = single_match(r_score, r_weight) unless single_match(r_score, r_weight) == nil
+
+        movie_scores[m.title] ||= []
+        movie_scores[m.title] << score
+      end
+    end
+
     find_final_scores(movie_scores)
   end
 
@@ -82,5 +101,7 @@ class Question < ActiveRecord::Base
       self.final_scores[movie] = scores.inject {|sum, elem| sum + elem } / scores.size
     end
   end
+
+
 
 end
