@@ -1,8 +1,10 @@
 <%= form_tag(enter_question_path) do %>
+
+  <%= render "director" %>
+  <%= render "actor" %>
   <%= render "genre" %>
   <%= render "rating" %>
   <%= render "runtime" %>
-  <%= render "actor" %>
 
   <div class="clearfix"></div>
   <div class="text-center">

@@ -43,8 +43,6 @@ class Question < ActiveRecord::Base
     end
   end
 
-  # {"genre"=>{"name"=>"genre", "answer"=>["5", "11"], "weight"=>"1"}, "rating"=>{"name"=>"rating", "answer"=>["R"], "weight"=>"2"}}
-
   def find_my_movies
     movie_scores ||= {}
 
@@ -109,6 +107,17 @@ class Question < ActiveRecord::Base
       end
     end
 
+    if seed[:director][:weight] && seed[:director][:weight] != "0"
+      Movie.all.each do |m|
+        r_weight = seed[:director][:weight].to_i
+
+        r_score = seed[:director][:answer].include?(m.director) ? 1 : 0
+        score = single_match(r_score, r_weight) unless single_match(r_score, r_weight) == nil
+
+        movie_scores[m.title] ||= []
+        movie_scores[m.title] << score unless score == nil
+      end
+    end
 
     find_final_scores(movie_scores)
   end

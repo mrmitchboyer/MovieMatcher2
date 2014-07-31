@@ -2,11 +2,18 @@
   <div class="panel-body text-center">
 
     <%= hidden_field_tag "ans[director][name]", :director %>
-    <h2>Who are your favorite directors?</h2>
+    <h2>What director(s) do you prefer?</h2>
     <p>
       <% @directors.each do |director| %>
-        <%= check_box_tag "ans[director][answer][]", director.id %>
-        <%= label_tag "ans[director][answer][]", director.name %>
+        <%= check_box_tag "ans[director][answer][]", director %>
+        <%= label_tag "ans[director][answer][]", director %>
+      <% end %>
+    </p>
+    <h3>How much do you care about the movie's director?</h3>
+    <p>
+      <% Question.weight.each do |label, weight| %>
+        <%= radio_button_tag "ans[director][weight]", weight %>
+        <%= label_tag "ans[director][weight]", label %>
       <% end %>
     </p>
     <a class="btn btn-primary new-question">Ask Another Question</a>

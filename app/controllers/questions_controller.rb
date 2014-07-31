@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
     @ratings = Movie.all.map{ |m| m.rating }.uniq
     @runtimes = Question.runtimes
     @actors = TopActor.find_intersection
+    @directors = TopDirector.find_intersection
   end
 
   def create
