@@ -1,10 +1,16 @@
 $( document ).ready(function() {
 
   var $allMovies = $('.all-movies'),
-      $movie = $allMovies.children('div');
+      $movie = $allMovies.children('div'),
+      $question = $('.question'),
+      $form = $('form'),
+      $newQuestionBtn = $('.new-question');
 
+  randomQuestions();
+  newQuestion();
   sortMovies();
   showTopFive();
+
 
   function sortMovies(){
 
@@ -31,6 +37,22 @@ $( document ).ready(function() {
     $('.show-all-movies').click(function(){
       $movie.show();
       $(this).hide();
+    });
+  }
+
+  function randomQuestions(){
+    $question.sort(function(){return Math.random()*10 > 5 ? 1 : -1;}).each(function(){
+        $question.detach().prependTo($form);
+    });
+
+  }
+
+  function newQuestion(){
+    $question.hide();
+    $question.first().show(); 
+    
+    $form.on("click", ".new-question", function() {
+      $(this).parent().parent().next().slideDown("slow");
     });
   }
 

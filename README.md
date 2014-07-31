@@ -6,3 +6,6 @@
 [] Sort the movies on the view page
 [] Fix the 
 [] Add what actors do you hate?
+[] Add progress bar to the homepage (questions)
+[] link to trailer
+[] link to buy tickets

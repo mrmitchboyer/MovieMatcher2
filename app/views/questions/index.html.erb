@@ -1,13 +1,13 @@
 <%= form_tag(enter_question_path) do %>
-
-  <%= render "director" %>
-  <%= render "actor" %>
-  <%= render "genre" %>
-  <%= render "rating" %>
-  <%= render "runtime" %>
-
+  <div class="question-partials">
+    <%= render "director" %>
+    <%= render "actor" %>
+    <%= render "genre" %>
+    <%= render "rating" %>
+    <%= render "runtime" %>
+  </div>
   <div class="clearfix"></div>
-  <div class="text-center">
+  <div class="text-center results-btn">
     <%= submit_tag "Show my results!", class: "btn-lg btn-success" %>
   </div>
 <%end%>

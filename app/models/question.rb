@@ -23,7 +23,6 @@ class Question < ActiveRecord::Base
 
   def calculate_score(score, weight)
     if weight == 1
-      # lowest score possible == 0.2
       score = Math.sqrt(score) == 0 ? 0.2 : (Math.sqrt(score)) * 0.9
       return score
     elsif weight == 2
