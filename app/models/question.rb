@@ -38,7 +38,7 @@ class Question < ActiveRecord::Base
   def find_my_movies
     movie_scores ||= {}
 
-    if seed[:genre][:weight] != "0"
+    if seed[:genre][:weight] && seed[:genre][:weight] != "0"
       Movie.all.each do |m|
         g_weight = seed[:genre][:weight].to_i
         intersection = m.genres.pluck(:id) & arr_to_i(seed[:genre][:answer])
@@ -51,7 +51,7 @@ class Question < ActiveRecord::Base
       end
     end
 
-    if seed[:rating][:weight] != "0"
+    if seed[:rating][:weight] && seed[:rating][:weight] != "0"
       Movie.all.each do |m|
         r_weight = seed[:rating][:weight].to_i
 
