@@ -92,6 +92,24 @@ class Question < ActiveRecord::Base
       end
     end
 
+    if seed[:actor][:weight] && seed[:actor][:weight] != "0"
+      Movie.all.each do |m|
+        movie_actor_ids = m.actors.pluck(:id)
+
+        r_weight = seed[:actor][:weight].to_i
+
+        intersection = m.actors.pluck(:id) & arr_to_i(seed[:actor][:answer])
+        g_score = (6.0 + intersection.count) / 10 unless intersection.count == 0
+
+        unless g_score == nil
+          score = calculate_score(g_score, r_weight)
+        end
+        movie_scores[m.title] ||= []
+        movie_scores[m.title] << score unless score == nil
+      end
+    end
+
+
     find_final_scores(movie_scores)
   end
 
