@@ -1,17 +1,23 @@
-<% @movies.each do |movie| %>
-  <h2><%= movie.title %></h2>
-  <h3><%= number_to_percentage(@score[movie.title]*100, precision: 0) %></h3>
-  <ul>
-    <li>Rating: <%= movie.rating %></li>
-    <li>Runtime: <%= movie.runtime %></li>
-    <li>description: <%= movie.description %></li>
-    <li>Director: <%= movie.director %></li>
-    <li><%= image_tag("#{movie.image_url}", alt: "#{movie.title}") %></li>
-    <% movie.genres.each do |genre| %>
-    <%= genre.name %>
-    <%end%>
-    <% movie.actors.each do |actor| %>
-    <%= actor.name %>
-    <% end %>
-  </ul>
-<% end %>
+<div class="all-movies">
+  <% @movies.each do |movie| %>
+    <div class="movie" data-name="<%= @score[movie.title] %>">
+      <h2><%= movie.title %></h2>
+      <h3><%= number_to_percentage(@score[movie.title]*100, precision: 0) %></h3>
+      <ul>
+        <li>Rating: <%= movie.rating %></li>
+        <li>Runtime: <%= movie.runtime %></li>
+        <li>description: <%= movie.description %></li>
+        <li>Director: <%= movie.director %></li>
+        <li><%= image_tag("#{movie.image_url}", alt: "#{movie.title}") %></li>
+        <% movie.genres.each do |genre| %>
+        <%= genre.name %>
+        <%end%>
+        <% movie.actors.each do |actor| %>
+        <%= actor.name %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<a class="btn btn-primary show-all-movies">Show all movies</a>

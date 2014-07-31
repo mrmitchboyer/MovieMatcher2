@@ -16,7 +16,7 @@ class Question < ActiveRecord::Base
   def calculate_score(score, weight)
     if weight == 1
       # lowest score possible == 0.2
-      score = Math.sqrt(score) == 0 ? 0.2 : Math.sqrt(score)
+      score = Math.sqrt(score) == 0 ? 0.2 : (Math.sqrt(score)) * 0.9
       return score
     elsif weight == 2
       return score
@@ -34,6 +34,8 @@ class Question < ActiveRecord::Base
       return nil
     end
   end
+
+  # {"genre"=>{"name"=>"genre", "answer"=>["5", "11"], "weight"=>"1"}, "rating"=>{"name"=>"rating", "answer"=>["R"], "weight"=>"2"}}
 
   def find_my_movies
     movie_scores ||= {}
