@@ -5,8 +5,10 @@
       <h2>What rating(s) do you prefer?</h2>
       <p>
         <% @ratings.each do |rating| %>
+        <div class="checkboxes">
           <%= check_box_tag "ans[rating][answer][]", rating %>
           <%= label_tag "ans[rating][answer][]", rating %>
+        </div>
         <% end %>
       </p>
       <h3>How much do you care about the movie's rating?</h3>

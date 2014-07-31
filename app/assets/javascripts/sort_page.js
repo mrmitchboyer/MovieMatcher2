@@ -5,6 +5,8 @@ $( document ).ready(function() {
       $question = $('.question'),
       $form = $('form'),
       $newQuestionBtn = $('.new-question');
+      $note = $('.note')
+      
 
   randomQuestions();
   newQuestion();
@@ -52,6 +54,7 @@ $( document ).ready(function() {
     $question.first().show(); 
     
     $form.on("click", ".new-question", function() {
+      $(this).parent().parent().hide();
       $(this).parent().parent().next().slideDown("slow");
     });
   }

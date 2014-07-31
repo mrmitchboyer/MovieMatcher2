@@ -2,14 +2,16 @@
   <div class="panel-body text-center">
 
     <%= hidden_field_tag "ans[genre][name]", :genre %>
-    <h2>What genre(s) do you prefer?</h2>
+    <h2>What kind of movie are you in the mood for? ;D </h2>
     <p>
       <% @genres.each do |genre| %>
+      <div class="checkboxes">
         <%= check_box_tag "ans[genre][answer][]", genre.id %>
         <%= label_tag "ans[genre][answer][]", genre.name %>
+      </div>
       <% end %>
     </p>
-    <h3>How much do you care about the movie's genre?</h3>
+    <h3>How much does this matter?</h3>
     <p>
       <% Question.weight.each do |label, weight| %>
         <%= radio_button_tag "ans[genre][weight]", weight %>

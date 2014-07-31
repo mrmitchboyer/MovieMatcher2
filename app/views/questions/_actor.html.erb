@@ -5,8 +5,10 @@
     <h2>What actor(s) do you prefer?</h2>
     <p>
       <% @actors.each do |actor| %>
+      <div class="checkboxes">
         <%= check_box_tag "ans[actor][answer][]", actor.id %>
         <%= label_tag "ans[actor][answer][]", actor.name %>
+      </div>
       <% end %>
     </p>
     <h3>How much do you care about the movie's actor?</h3>

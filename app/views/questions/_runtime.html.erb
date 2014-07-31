@@ -2,14 +2,16 @@
   <div class="panel-body text-center">
 
       <%= hidden_field_tag "ans[runtime][name]", :runtime %>
-      <h2>What runtime(s) do you prefer?</h2>
+      <h2>How long do you want to sit in the theatre for?</h2>
       <p>
         <% @runtimes.each do |label, value| %>
+        <div class="checkboxes">
           <%= check_box_tag "ans[runtime][answer][]", value %>
           <%= label_tag "ans[runtime][answer][]", label %>
+        </div>
         <% end %>
       </p>
-      <h3>How much do you care about the movie's runtime?</h3>
+      <h3>How much do you care?</h3>
       <p>
         <% Question.weight.each do |length, weight| %>
           <%= radio_button_tag "ans[runtime][weight]", weight %>

@@ -38,9 +38,28 @@ h1 a:hover{
   text-decoration: none;
 }
 
-.navbar .navbar-default{
-  border: none;
+.navbar-default{
+  border-color: #060606 !important;
 }
+
+.checkboxes{
+  display: inline-block !important;
+}
+
+label{
+  margin-right:10px;
+  font-size: 25px;
+  color: #2a9fd6;
+}
+
+/*this needs MAJOR help!!*/
+.note{
+  text-align: center;
+  border-style: solid;
+  border-left-width: 5px;
+  border-color: #2a9fd6;
+}
+
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
