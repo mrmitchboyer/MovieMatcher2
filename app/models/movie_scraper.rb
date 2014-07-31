@@ -45,4 +45,15 @@ class MovieScraper
       end
   end
 
+  def top_act
+    doc = Nokogiri::HTML(open('http://www.imdb.com/list/ls000004615/?start=1&view=compact&sort=listorian:asc&scb=0.8744896727148443'))
+
+      doc.css("td.name").each do |actor|
+        a = TopActor.new
+
+        a.name = actor.children.children.text
+
+        a.save
+      end
+  end
 end
