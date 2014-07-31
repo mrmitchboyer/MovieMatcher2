@@ -6,23 +6,17 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @question = Question.new
-    @question.selection = params[:genre][:user_genre]
-    @question.user_weight = params[:genre][:genre_weight]
-    @question.question_type = params[:genre][:name]
-    @question.add_to_user_responses
+    @question.seed = question_params 
     @question.find_my_movies
-    session[:score] = @question.movie_scores
-    redirect_to '/'
+    session[:score] = @question.final_scores
+    redirect_to movies_path
   end
 
-  def update
-    # @question = Question.find_by
-    # @question.selection = params[:question][:selection]
-    # @question.user_weight = params[:user_weight]
-    # @question.find_my_movies
-  end
+  private
+    def question_params
+      params.require(:ans)
+    end
 
 
 end

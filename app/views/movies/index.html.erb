@@ -1,6 +1,6 @@
 <% @movies.each do |movie|%>
   <h2><%= movie.title%></h2>
-  <h3><%#= number_to_percentage(@score[movie.title]*100, precision: 0)%></h3>
+  <h3><%= number_to_percentage(@score[movie.title]*100, precision: 0)%></h3>
     <ul>
       <li>Rating: <%= movie.rating%></li>
       <li>Runtime: <%= movie.runtime%></li>
