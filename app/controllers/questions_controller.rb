@@ -1,8 +1,9 @@
 class QuestionsController < ApplicationController
 
   def index
-    @ratings = Movie.all.map{ |m| m.rating }.uniq
     @genres = Genre.all
+    @ratings = Movie.all.map{ |m| m.rating }.uniq
+    @runtimes = Question.runtimes
   end
 
   def create
