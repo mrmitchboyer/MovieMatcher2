@@ -23,6 +23,24 @@ body {
   padding-bottom: 30px;
 }
 
+h1{
+  font-family: monoton, sans-serif;
+  font-size: 100px;
+}
+
+h1 a{
+  color: rgb(236,67,67);
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+h1 a:hover{
+  text-decoration: none;
+}
+
+.navbar .navbar-default{
+  border: none;
+}
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
