@@ -1,0 +1,15 @@
+<div class="panel panel-default col-md-8 col-md-offset-2 question">
+  <div class="panel-body text-center">
+
+    <%= hidden_field_tag "ans[director][name]", :director %>
+    <h2>Who are your favorite directors?</h2>
+    <p>
+      <% @directors.each do |director| %>
+        <%= check_box_tag "ans[director][answer][]", director.id %>
+        <%= label_tag "ans[director][answer][]", director.name %>
+      <% end %>
+    </p>
+    <a class="btn btn-primary new-question">Ask Another Question</a>
+
+  </div>
+</div>
