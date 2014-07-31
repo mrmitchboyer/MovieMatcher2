@@ -35,10 +35,6 @@ class Question < ActiveRecord::Base
     end
   end
 
-  # ans: {
-  #      "genre"=>{"name"=>"genre", "answer"=>["2", "3", "5"], "weight"=>"1"}, 
-  #      "rating"=>{"name"=>"rating", "answer"=>["PG-13", "R"], "weight"=>"2"}
-  #      }
   def find_my_movies
     movie_scores ||= {}
 
@@ -66,10 +62,8 @@ class Question < ActiveRecord::Base
         movie_scores[m.title] << score
       end
     end
-    
-    # binding.pry
+
     find_final_scores(movie_scores)
-    # self.movie_scores[m.title] = score_sum.inject {|sum, elem| sum + elem } / score_sum.size unless score_sum == []
   end
 
   def find_final_scores(movie_scores)
