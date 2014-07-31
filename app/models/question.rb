@@ -6,8 +6,6 @@ class Question < ActiveRecord::Base
   # "rating"=>{"name"=>"rating", "answer"=>["PG-13", "R"], "weight"=>"2"}
   # }
 
-  answers.each do |
-
   def self.weight
     {
       "I don't care" => 0,
