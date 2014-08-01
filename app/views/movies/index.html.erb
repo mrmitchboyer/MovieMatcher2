@@ -1,4 +1,9 @@
-
+<div class="movie-alert">
+  <div class="panel col-md-8 col-md-offset-2 text-center" >
+  <h3>This is what you should watch this weekend!</h3>
+  <h4>Percentages represent how likely you are to enjoy the movie</h4>
+  </div>
+</div>
 <div class="all-movies">
   <% @movies.each do |movie| %>
     <div class="movie panel panel-default col-md-8 col-md-offset-2" data-name="<%= @score[movie.title] %>">
