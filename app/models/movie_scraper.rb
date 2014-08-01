@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'themoviedb'
 require 'pry'
 
 class MovieScraper
@@ -14,8 +15,21 @@ class MovieScraper
 
   def scrape_all
     self.current_movies
+    self.get_backdrops
     self.top_dir
     self.top_act
+  end
+
+  def get_backdrops
+    Tmdb::Api.key("68c4c3e8cc8ce15135fc108230239dbf")
+
+    Movie.all.each do |m|
+      db_movie = Tmdb::Movie.find(m.title)[0]
+      backdrop_path = db_movie.backdrop_path
+      m.backdrop = "http://image.tmdb.org/t/p/w1280" + backdrop_path
+      m.save
+    end
+    
   end
 
   def current_movies
@@ -46,7 +60,6 @@ class MovieScraper
       m.trailer = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[0]["href"]}"
 
       m.ticket = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[2]["href"]}"
-
       m.save
     end
   end

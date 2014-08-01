@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'questions#index'
 
-  get 'movies' => 'movies#index'
-  get 'questions' => 'questions#index'
-  post 'questions' => 'questions#create', :as => 'enter_question'
+  get '/movies' => 'movies#index'
+  get '/questions' => 'questions#index'
+  get '/find_backdrop' => 'questions#find_backdrop'
+  post '/questions' => 'questions#create', :as => 'enter_question'
 end

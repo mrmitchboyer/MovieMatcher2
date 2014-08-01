@@ -17,6 +17,11 @@ class QuestionsController < ApplicationController
     redirect_to movies_path
   end
 
+  def find_backdrop
+    @movie = Movie.all.pluck(:backdrop).shuffle.first
+    render :json => @movie, :status => 200 
+  end
+
   private
     def question_params
       params.require(:ans)
