@@ -1,7 +1,7 @@
 <script type="text/javascript">
     function emptyValue() {
-      if ($("input[type='checkbox']:visible:checked").length === 0){
-        alert('You need to click a checkbox and a button.')
+      if ($("input[type='checkbox']:visible:checked").length === 0 && $("input[type='radio']:visible:checked").length === 1){
+        alert('You need to click a checkbox.')
         return false;
        }else{
         return true;

@@ -73,10 +73,4 @@ $( document ).ready(function() {
         $(this).parent().parent().next().fadeIn("slow");
       });
     }
-
-  // function emptyValue(){
-  //   $form.on("click", ".btn-success", function(){
-  //     alert("Fuck this shit");
-  //   });
-  // }
 });
