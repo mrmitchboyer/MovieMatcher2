@@ -1,21 +1,23 @@
 
 <div class="all-movies">
   <% @movies.each do |movie| %>
-<<<<<<< HEAD
     <div class="movie panel panel-default col-md-8 col-md-offset-2" data-name="<%= @score[movie.title] %>">
         <%if @score[movie.title] != nil%>
           <div class="score-box text-center">
-            <h3>
+            <h3 class="score">
               <%= (@score[movie.title]*100).ceil %><span>%</span>
             </h3>
           </div>
         <%end%>
+<<<<<<< HEAD
 =======
     <div class="movie panel panel-default col-md-8 col-md-offset-2" data-name="<%= @score[movie.title]%>">
         <div class="score-box text-center">
           <h3 class ="score"><%= (@score[movie.title]*100).ceil %><span>%</span></h3>
         </div>
 >>>>>>> 241388b952e855d9c70b6ecbecb2fa1bacdc7f09
+=======
+>>>>>>> ef916f428addd2dedf8b518570c0051c15535c3b
         <h2><%= movie.title %></h2>
       <div class="panel-body">
         <div class="row">

@@ -96,6 +96,7 @@ h1 a:hover{
   float: right;
   width: 100px;
   height: 100px;
+  // background: green;
   line-height: 100px;
   box-shadow: 0 0 20px #000;
   text-shadow: 0 0 10px #545454;
@@ -105,13 +106,19 @@ h1 a:hover{
   position: relative;
   float: left;
   margin-right:20px;
+  width:100px;
 }
 
 .movie-description p {
   margin-left:20px;
   margin-right:50px;
   color: #c0c0c0;
-  font-size: 14px;
+  font-size: 18px;
+}
+
+.movie-description{
+  float:left;
+  width:600px;
 }
 
 
@@ -238,14 +245,7 @@ input[type=radio]
   -o-transform: scale(1.5); /* Opera */
   margin: 0 15px 0 15px;
 }
-.movie-img{
-  float:left;
-  width:100px;
-}
-.movie-description{
-  float:left;
-  width:600px;
-}
+
 
 // glow animation
 
