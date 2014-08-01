@@ -133,6 +133,14 @@ input[type=radio]
   -o-transform: scale(2); /* Opera */
   margin: 0 10px 0 0;
 }
+.movie-img{
+  float:left;
+  width:100px;
+}
+.movie-description{
+  float:left;
+  width:600px;
+}
 
 
 @-webkit-keyframes neonAnimation {
