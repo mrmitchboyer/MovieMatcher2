@@ -4,7 +4,7 @@
     <div class="movie panel panel-default col-md-8 col-md-offset-2" data-name="<%= @score[movie.title] %>">
         <%if @score[movie.title] != nil%>
           <div class="score-box text-center">
-            <h3>
+            <h3 class="score">
               <%= (@score[movie.title]*100).ceil %><span>%</span>
             </h3>
           </div>
