@@ -1,5 +1,15 @@
+<script type="text/javascript">
+    function emptyValue() {
+      if ($("input[type='checkbox']:visible:checked").length === 0){
+        alert('You need to click a checkbox and a button.')
+        return false;
+       }else{
+        return true;
+      }
+    }
+</script>
 <%= form_tag(enter_question_path) do %>
-  <div class="question-partials">
+  <div class="question-partials" id="form">
 
     <%= render "actor" %>
     <%= render "director" %>
@@ -10,6 +20,6 @@
   </div>
   <div class="clearfix"></div>
   <div class="text-center results-btn">
-    <%= submit_tag "Show my results!", class: "btn btn-success real-results-btn red-glow btn-animation" %>
+    <%= submit_tag "Show my results!", class: "btn btn-success real-results-btn red-glow btn-animation", onClick:"return emptyValue();"%>
   </div>
 <%end%>

@@ -68,9 +68,15 @@ $( document ).ready(function() {
     $question.hide();
     $question.first().show(); 
     
-    $form.on("click", ".new-question", function() {
-      $(this).parent().parent().hide();
-      $(this).parent().parent().next().fadeIn("slow");
-    });
+      $form.on("click", ".new-question", function() {
+        $(this).parent().parent().hide();
+        $(this).parent().parent().next().fadeIn("slow");
+      });
     }
-  });
+
+  // function emptyValue(){
+  //   $form.on("click", ".btn-success", function(){
+  //     alert("Fuck this shit");
+  //   });
+  // }
+});
