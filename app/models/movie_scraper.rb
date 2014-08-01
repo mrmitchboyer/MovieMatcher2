@@ -43,6 +43,10 @@ class MovieScraper
       end
       m.image_url = movie.parent.css(".poster")[0]["src"]
 
+      m.trailer = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[0]["href"]}"
+
+      m.ticket = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[2]["href"]}"
+
       m.save
     end
   end
