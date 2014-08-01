@@ -5,14 +5,12 @@ $( document ).ready(function() {
       $question = $('.question'),
       $form = $('form'),
       $newQuestionBtn = $('.new-question');
-      $note = $('.note')
       
-
   randomQuestions();
   newQuestion();
   sortMovies();
   showTopFive();
-
+  changeColor();
 
   function sortMovies(){
 
@@ -39,7 +37,24 @@ $( document ).ready(function() {
     $('.show-all-movies').click(function(){
       $movie.show();
       $(this).hide();
-    });
+  });
+  };
+
+  function changeColor() {
+    $('.score').each(function(node) {
+        var sliced_node = $(this).text().slice(0, -1);
+        var new_node = parseInt(sliced_node);
+          if(new_node >= 70) {
+            $(this).parent().css("background-color", "green");
+          }
+          else if(new_node < 70 && new_node > 30) {
+            $(this).parent().css("background-color", "yellow");
+          }
+          else if(new_node <= 30) {
+            $(this).parent().css("background-color", "red");
+          }
+    }
+    );
   }
 
   function randomQuestions(){
@@ -57,6 +72,5 @@ $( document ).ready(function() {
       $(this).parent().parent().hide();
       $(this).parent().parent().next().fadeIn("slow");
     });
-  }
-
-});
+    }
+  });
