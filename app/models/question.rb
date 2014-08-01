@@ -11,9 +11,9 @@ class Question < ActiveRecord::Base
 
   def self.runtimes
     {
-      "Fewer than 90 min" => 0,
+      "Under 90 min" => 0,
       "90 min - 120 min" => 1,
-      "Greater than 120 min" => 2
+      "Over 120 min" => 2
     }
   end
 

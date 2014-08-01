@@ -1,24 +1,29 @@
-<div class="panel panel-default col-md-8 col-md-offset-2 question">
-  <div class="panel-body text-center">
-
-      <%= hidden_field_tag "ans[rating][name]", :rating %>
-      <h2>What rating(s) do you prefer?</h2>
+<div class="panel panel-default col-md-8 col-md-offset-2 question text-center">
+  <h2>What ratings do you prefer?</h2>
+  <div class="panel-body">
+    <%= hidden_field_tag "ans[rating][name]", :rating %>
+    <div class="col-sm-4 col-sm-offset-4">
       <p>
-        <% @ratings.each do |rating| %>
-        <div class="checkboxes">
+        <% @ratings.sort.each do |rating| %>
+        <div class="checkboxes text-left">
           <%= check_box_tag "ans[rating][answer][]", rating %>
           <%= label_tag "ans[rating][answer][]", rating %>
         </div>
         <% end %>
       </p>
-      <h3>How much do you care about the movie's rating?</h3>
+    </div>
+    <div class="clearfix"></div>
+    <div>
+    <h4>How much do you care about the movie's rating?</h4>
       <p>
         <% Question.weight.each do |length, weight| %>
           <%= radio_button_tag "ans[rating][weight]", weight %>
           <%= label_tag "ans[rating][weight]", length %>
         <% end %>
       </p>
-      <a class="btn btn-primary new-question">Ask Another Question</a>
+    </div>
+    <a class="btn btn-primary new-question blue-glow btn-animation">Ask Another Question</a>
+
 
   </div>
 </div>
