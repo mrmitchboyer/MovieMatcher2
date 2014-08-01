@@ -55,7 +55,7 @@ $( document ).ready(function() {
     
     $form.on("click", ".new-question", function() {
       $(this).parent().parent().hide();
-      $(this).parent().parent().next().slideDown("slow");
+      $(this).parent().parent().next().fadeIn("slow");
     });
   }
 

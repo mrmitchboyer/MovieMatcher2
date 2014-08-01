@@ -17,10 +17,15 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
-@import "bootstrap";
-/* Some Style from the Bootstrap Default Theme */
+
+
 body {
   padding-bottom: 30px;
+  background: url(http://image.tmdb.org/t/p/w1000/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h1{
@@ -29,43 +34,103 @@ h1{
 }
 
 h1 a{
-  color: rgb(236,67,67);
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s;
+  color: white;
+  -webkit-animation: neonAnimation 1.5s ease-in-out infinite alternate;
+  -moz-animation: neonAnimation 1.5s ease-in-out infinite alternate;
+  animation: neonAnimation 1.5s ease-in-out infinite alternate; 
 }
 
 h1 a:hover{
   text-decoration: none;
+  color: white;
 }
 
-.navbar-default{
-  border-color: #060606 !important;
-}
 
-.checkboxes{
-  display: inline-block !important;
-}
-
-label{
-  margin-right:10px;
-  font-size: 25px;
+.blue {
   color: #2a9fd6;
 }
 
-/*this needs MAJOR help!!*/
-.note{
-  text-align: center;
-  border-style: solid;
-  border-left-width: 5px;
-  border-color: #2a9fd6;
+.navbar-default{
+  border: none !important;
+  background: rgba(0,0,0,0.7);
+  padding: 20px 0;
 }
 
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+.panel {
+  background: rgba(0,0,0,0.9);
+  border-radius: 0;
+  border: none;
+} 
+
+.score-box {
+  position: relative;
+  float: right;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  background: #50c523;
+  box-shadow: 0 0 20px #000;
+  text-shadow: 0 0 10px #545454;
 }
 
-.theme-showcase > p > .btn {
-  margin: 5px 0;
+.movie-img {
+  position: relative;
+  float: left;
+  margin-right:20px;
+}
+
+.movie-description p {
+  margin-left:20px;
+  margin-right:50px;
+  color: #c0c0c0;
+  font-size: 18px;
+}
+
+.movie-description strong {
+  color: #e3e3e3;
+}
+
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  margin: 0 10px 0 0;
+}
+
+input[type=radio]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  margin: 0 10px 0 0;
+}
+
+
+@-webkit-keyframes neonAnimation {
+  from {
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px  #fff,
+                 0 0 30px  #fff,
+                 0 0 40px  #ff243c,
+                 0 0 70px  #ff243c,
+                 0 0 80px  #ff243c,
+                 0 0 100px #ff243c,
+                 0 0 150px #ff243c;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+                 0 0 10px #fff,
+                 0 0 15px #fff,
+                 0 0 20px #2a9fd6,
+                 0 0 35px #2a9fd6,
+                 0 0 40px #2a9fd6,
+                 0 0 50px #2a9fd6,
+                 0 0 75px #2a9fd6;
+  }
 }

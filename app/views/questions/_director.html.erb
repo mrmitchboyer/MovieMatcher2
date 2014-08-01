@@ -5,10 +5,8 @@
     <h2>Do you like any of these directors?</h2>
     <p>
       <% @directors.each do |director| %>
-      <div class="checkboxes">
-        <%= check_box_tag "ans[director][answer][]", director %>
-        <%= label_tag "ans[director][answer][]", director %>
-      </div>
+          <%= check_box_tag "ans[director][answer][]", director %>
+          <%= label_tag "ans[director][answer][]", director %><br>
       <% end %>
     </p>
     <h3>How much do you care about the movie's director?</h3>
