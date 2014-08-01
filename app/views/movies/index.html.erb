@@ -1,6 +1,6 @@
 <div class="all-movies">
   <% @movies.each do |movie| %>
-    <div class="movie panel panel-default col-md-8 col-md-offset-2" data-name="<%= @score[movie.title] %>">
+    <div class="movie panel panel-default col-md-8 col-md-offset-2" data-name="<%= @score[movie.title]%>">
         <div class="score-box text-center">
           <h3><%= (@score[movie.title]*100).ceil %><span>%</span></h3>
         </div>
@@ -33,5 +33,5 @@
 
 <div class="clearfix"></div>
 <div class="text-center">
-  <a class="btn btn-primary show-all-movies">Show all movies</a>
+  <a class="btn btn-primary show-all-movies blue-glow btn-animation">Show all movies</a>
 </div>

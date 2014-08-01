@@ -1,24 +1,28 @@
-<div class="panel panel-default col-md-8 col-md-offset-2 question">
-  <div class="panel-body text-center">
-
+<div class="panel panel-default col-md-8 col-md-offset-2 question text-center">
+  <h2>What actors do you like?</h2>
+  <div class="panel-body">
     <%= hidden_field_tag "ans[actor][name]", :actor %>
-    <h2>What actor(s) do you prefer?</h2>
-    <p>
-      <% @actors.each do |actor| %>
-      <div class="checkboxes">
-        <%= check_box_tag "ans[actor][answer][]", actor.id %>
-        <%= label_tag "ans[actor][answer][]", actor.name %>
-      </div>
-      <% end %>
-    </p>
-    <h3>How much do you care about the movie's actor?</h3>
-    <p>
-      <% Question.weight.each do |label, weight| %>
-        <%= radio_button_tag "ans[actor][weight]", weight %>
-        <%= label_tag "ans[actor][weight]", label %>
-      <% end %>
-    </p>
-    <a class="btn btn-primary new-question">Ask Another Question</a>
+    <div class="col-sm-4 col-sm-offset-4">
+      <p>
+        <% @actors.each do |actor| %>
+        <div class="checkboxes text-left">
+          <%= check_box_tag "ans[actor][answer][]", actor.id %>
+          <%= label_tag "ans[actor][answer][]", actor.name %>
+        </div>
+        <% end %>
+      </p>
+    </div>
+    <div class="clearfix"></div>
+    <div>
+      <h4>How much do you care about the movie's actors?</h4>
+      <p>
+        <% Question.weight.each do |label, weight| %>
+          <%= radio_button_tag "ans[actor][weight]", weight %>
+          <%= label_tag "ans[actor][weight]", label %>
+        <% end %>
+      </p>
+    </div>
+    <a class="btn btn-primary new-question blue-glow btn-animation">Ask Another Question</a>
 
   </div>
 </div>
