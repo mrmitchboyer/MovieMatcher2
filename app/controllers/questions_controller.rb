@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+
     @question = Question.new
     @question.seed = question_params 
     @question.find_my_movies
