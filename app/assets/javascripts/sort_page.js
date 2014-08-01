@@ -13,6 +13,20 @@ $( document ).ready(function() {
   showTopFive();
   changeColor();
 
+  $('.real-results-btn').click(emptyValue);
+
+  function emptyValue() {
+    if ($("input[type='checkbox']:visible:checked").length === 0 && $("input[type='radio']:visible:checked").length === 1) {
+        alert('You need to choose an option.');
+        return false;
+    } else if ($("input[type='radio']:visible:checked").length === 0 && $("input[type='checkbox']:visible:checked").length > 0) {
+        alert('You need to tell us how much you care.');
+        return false;
+    } else {
+        return true;
+    }
+  }
+
   function sortMovies(){
 
     $movie.sort(function(a,b){

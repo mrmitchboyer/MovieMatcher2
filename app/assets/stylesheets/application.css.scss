@@ -208,6 +208,16 @@ label {
   background-color: #ff243c;
 }
 
+.real-results-btn:active {
+  background: #ff243c;
+  border-color: #ff243c;
+}
+
+.real-results-btn:visited {
+  background: #ff243c;
+  border-color: #ff243c;
+}
+
 .red-glow:hover {
   -webkit-text-shadow: 0 0 5px #fff;
   text-shadow: 0 0 5px #fff;
