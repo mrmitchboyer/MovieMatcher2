@@ -63,6 +63,7 @@ class Question < ActiveRecord::Base
         r_weight = seed[:rating][:weight].to_i
 
         r_score = seed[:rating][:answer].include?(m.rating) ? 1 : 0
+        
         score = single_match(r_score, r_weight) unless single_match(r_score, r_weight) == nil
 
         movie_scores[m.title] ||= []
