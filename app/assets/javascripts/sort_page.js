@@ -3,6 +3,7 @@ $( document ).ready(function() {
   var $allMovies = $('.all-movies'),
       $movie = $allMovies.children('div'),
       $question = $('.question'),
+      $multipleAlert = $('.multiple-alert'),
       $form = $('form'),
       $newQuestionBtn = $('.new-question');
       
@@ -28,6 +29,10 @@ $( document ).ready(function() {
     });
 
     $movie.detach().appendTo($allMovies);
+  }
+
+  function hideAlert() {
+    $multipleAlert.show().delay(3000).fadeOut();
   }
 
   function showTopFive(){
@@ -66,11 +71,15 @@ $( document ).ready(function() {
 
   function newQuestion(){
     $question.hide();
-    $question.first().show(); 
+    $question.first().show(function(){  
+      hideAlert(); 
+    }); 
     
     $form.on("click", ".new-question", function() {
       $(this).parent().parent().hide();
-      $(this).parent().parent().next().fadeIn("slow");
+      $(this).parent().parent().next().fadeIn("slow", function(){
+        hideAlert();
+      });
     });
     }
   });
