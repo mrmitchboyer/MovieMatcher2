@@ -10,14 +10,22 @@
   <script src="//use.edgefonts.net/monoton.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <h1 class="text-center"><%= link_to "Pelicula Picker", root_path %></h1>
-  </div>
-</nav>
+<div id="wrap">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <h1 class="text-center"><%= link_to "Pelicula Picker", root_path %></h1>
+    </div>
+  </nav>
 
-<div class="container">
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+</div>
+<div id="footer">
+  <div class="container">
+    <p class="text-muted text-center">Made with &#9825; by <a href="https://github.com/adriennefishman">Adrienne Fishman</a>, <a href="https://github.com/christinaleuci">Christina Leuci</a> and <a href="https://github.com/mrmitchboyer">Mitch Boyer</a> at <a href="http://flatironschool.com">The Flatiron School</a></p>
+  </div>
 </div>
 
 </body>

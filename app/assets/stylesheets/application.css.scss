@@ -18,6 +18,8 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
 
+html {
+}
 
 body {
   padding-bottom: 30px;
@@ -44,6 +46,13 @@ h1 a:hover{
   text-decoration: none;
   color: white;
 }
+
+// #footer {
+//   // background: rgba(0,0,0,0.7);
+//   // width: 100%;
+//   // height: 45px;
+//   // padding-top: 15px;
+// }
 
 
 .blue {
@@ -89,6 +98,19 @@ h1 a:hover{
 
 .movie-description strong {
   color: #e3e3e3;
+}
+
+// buttons
+
+.new-question {
+  background: #2a9fd6;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 0;
+}
+
+.new-question a:hover{
+
 }
 
 
