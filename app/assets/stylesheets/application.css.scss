@@ -32,6 +32,14 @@ body {
   height: 100%;
 }
 
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+
 
 h1{
   font-family: monoton, sans-serif;
@@ -67,7 +75,6 @@ h1 a:hover{
   padding-top: 15px;
 }
 
-
 .blue {
   color: #2a9fd6;
 }
@@ -90,7 +97,6 @@ h1 a:hover{
   width: 100px;
   height: 100px;
   line-height: 100px;
-  background: #50c523;
   box-shadow: 0 0 20px #000;
   text-shadow: 0 0 10px #545454;
 }
