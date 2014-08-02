@@ -125,7 +125,11 @@ class Question < ActiveRecord::Base
   def find_final_scores(movie_scores)
     self.final_scores ||= {}
     movie_scores.each do |movie, scores|
-      self.final_scores[movie] = scores.inject {|sum, elem| sum + elem } / scores.size
+      if scores != []
+        self.final_scores[movie] = scores.inject {|sum, elem| sum + elem } / scores.size
+      else
+        self.final_scores[movie] = 0
+      end
     end
   end
 
