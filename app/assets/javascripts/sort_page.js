@@ -14,20 +14,20 @@ $( document ).ready(function() {
   showTopFive();
   changeColor();
 
-  $.ajax({ 
-          type: 'GET',
-          url: '/find_backdrop',
-          success: function(response){
-            console.log(response.responseText);
-          },
-          error: function(response){
-            $('body').css({'background': 'url('+response.responseText+') no-repeat center center fixed',
-                          '-webkit-background-size': 'cover',
-                          '-moz-background-size': 'cover',
-                          '-o-background-size': 'cover',
-                          'background-size': 'cover'});
-          }
-  });
+  // $.ajax({ 
+  //         type: 'GET',
+  //         url: '/find_backdrop',
+  //         success: function(response){
+  //           console.log(response.responseText);
+  //         },
+  //         error: function(response){
+  //           $('body').css({'background': 'url('+response.responseText+') no-repeat center center fixed',
+  //                         '-webkit-background-size': 'cover',
+  //                         '-moz-background-size': 'cover',
+  //                         '-o-background-size': 'cover',
+  //                         'background-size': 'cover'});
+  //         }
+  // });
 
   $('.real-results-btn').click(emptyValue);
 
