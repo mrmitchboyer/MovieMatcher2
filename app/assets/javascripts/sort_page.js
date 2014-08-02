@@ -26,7 +26,7 @@ $( document ).ready(function() {
                           '-moz-background-size': 'cover',
                           '-o-background-size': 'cover',
                           'background-size': 'cover'});
-          }
+          },
           error: function(response){
             $('body').css({'background': 'url('+response.responseText+') no-repeat center center fixed',
                           '-webkit-background-size': 'cover',
