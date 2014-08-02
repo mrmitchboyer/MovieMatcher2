@@ -59,8 +59,11 @@ class MovieScraper
 
       m.trailer = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[0]["href"]}"
 
-      binding.pry
-      m.ticket = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[2]["href"]}"
+      if movie.parent.parent.css(".overview-bottom a")[2]
+        m.ticket = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[2]["href"]}"
+      else
+        m.ticket = "#"
+      end
       m.save
     end
   end
