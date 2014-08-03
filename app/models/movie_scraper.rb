@@ -25,6 +25,8 @@ class MovieScraper
 
     Movie.all.each do |m|
       db_movie = Tmdb::Movie.find(m.title)[0]
+      poster_path = db_movie.poster_path
+      m.image_url = "http://image.tmdb.org/t/p/w154" + poster_path
       backdrop_path = db_movie.backdrop_path
       m.backdrop = "http://image.tmdb.org/t/p/w1280" + backdrop_path
       m.save
@@ -55,7 +57,6 @@ class MovieScraper
       actors.each do |actor|
         m.actors << Actor.find_or_create_by(name: "#{actor}")
       end
-      m.image_url = movie.parent.css(".poster")[0]["src"]
 
       m.trailer = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[0]["href"]}"
 
