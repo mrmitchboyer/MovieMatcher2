@@ -26,8 +26,10 @@ class MovieScraper
     Movie.all.each do |m|
       db_movie = Tmdb::Movie.find(m.title)[0]
       poster_path = db_movie.poster_path
+      # returns nil if there is no poster
       m.image_url = "http://image.tmdb.org/t/p/w154" + poster_path unless poster_path == nil 
       backdrop_path = db_movie.backdrop_path
+      # returns nil if there is no backdrop
       m.backdrop = "http://image.tmdb.org/t/p/w1280" + backdrop_path unless backdrop_path == nil
       m.save
     end
@@ -42,6 +44,7 @@ class MovieScraper
       
       index = movie.children[1].children.children.text.index("(")
       m.title = movie.children[1].children.children.text[1..index-2]
+      # retunrs "Not Rated" if the movie has no rating
       if movie.children[3].children[1].attributes["title"]
         m.rating = movie.children[3].children[1].attributes["title"].value
       else
@@ -62,12 +65,14 @@ class MovieScraper
         m.actors << Actor.find_or_create_by(name: "#{actor}")
       end
 
+      # stubs out the link if there is no trailer url
       if movie.parent.parent.css(".overview-bottom a")[0]
         m.trailer = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[0]["href"]}"
       else
         m.trailer = "#"
       end
 
+      # stubs out the link if there is no tickets url
       if movie.parent.parent.css(".overview-bottom a")[2]
         m.ticket = "http://www.imdb.com#{movie.parent.parent.css(".overview-bottom a")[2]["href"]}"
       else
