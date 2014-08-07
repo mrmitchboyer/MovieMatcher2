@@ -75,10 +75,14 @@ class Question < ActiveRecord::Base
       Movie.all.each do |m|
         r_weight = seed[:runtime][:weight].to_i
 
-        if m.runtime > 120
-          run_key = 2
-        elsif m.runtime < 90
-          run_key = 0
+        if m.runtime != nil
+          if m.runtime > 120
+            run_key = 2
+          elsif m.runtime < 90
+            run_key = 0
+          else
+            run_key = 1
+          end
         else
           run_key = 1
         end
