@@ -8,11 +8,11 @@ Película Picker
 
 ## Screenshots
 
-![](http://i.imgur.com/1zQoj6P)
+http://i.imgur.com/1zQoj6P
 
-![](http://i.imgur.com/XjB5vAv)
+http://i.imgur.com/XjB5vAv
 
-![](http://i.imgur.com/o2lfFxV)
+http://i.imgur.com/o2lfFxV
 
 ## Background
 
