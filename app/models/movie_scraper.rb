@@ -51,7 +51,7 @@ class MovieScraper
         m.rating = "Not Rated"
       end
       m.runtime = movie.children[3].children[3].children.text.to_i
-      # binding.pry
+      m.save
 
       genres = movie.children[3].css("span").children.text.split('|')[0..-1]
       genres.each do |genre|
